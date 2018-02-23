@@ -6,9 +6,9 @@
             <article>
                 <h2><%= item.title %></h2> 
             </article>
-            <a href="/details/<%=item._id %>">Voir profil</a>
-            <form action="/api/suppr-posts/<%=item._id %>" method="POST">
-                <button type="submit">suppr</button>
+            <a href="/api/details/<%=item._id %>">Voir Détails</a>
+            <form action="/api/suppr/<%=item._id %>" method="POST">
+                <button type="submit">Supprimer</button>
             </form>  
         <% } %>
         <a href="/add-recipe %>">Ajouter une recette</a>

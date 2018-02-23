@@ -41,11 +41,11 @@ router.get( '/', (req, res) => {
  
      })
  
- });;
+ });
 
 
 
-//On crée une route pour ajouter des recettes
+//On crée une route pour ajouter des recettes, le render va nous afficher la page "add-recipe.ejs" étant donné que le moteur de vue est fixé sur les fichiers ejs du dossier www-ejs
 router.get('/add-recipe',(req, res)=>{
     res.render('add-recipe');
 });

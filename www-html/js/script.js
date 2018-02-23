@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function()  {
                 },
 
                 apiUrl: {
-                    tasks: 'http://localhost:8000/api/my-recipes/',
+                    recipes: 'http://localhost:8000/api/my-recipes/',
                     add: 'http://localhost:8000/api/add-recipe',
                     //delete: 'http://localhost:3000/api/delete-task/',
                     //set: 'http://localhost:3000/api/set-task-state/'
