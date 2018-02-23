@@ -120,7 +120,7 @@ router.get( '/details/:id', (req, res) => {
 
 
 // On crée une nouvelle route api pour supprimer un article
-router.post('/suppr/:id', (req,res)=>{
+router.post('/delete/:id', (req,res)=>{
     console.log(req.params.id);
     mongoose.connect(mongoServeur, (err, db)=>{
         // On teste la connexion

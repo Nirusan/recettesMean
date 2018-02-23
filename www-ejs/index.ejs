@@ -2,12 +2,13 @@
 <body>
     <% include partials/header.ejs %>
     <main>
+        <!-- On fait une boucle pour que chaque recette s'affiche sur la page -->
         <% for(let item of data){%>
             <article>
                 <h2><%= item.title %></h2> 
             </article>
             <a href="/api/details/<%=item._id %>">Voir Détails</a>
-            <form action="/api/suppr/<%=item._id %>" method="POST">
+            <form action="/api/delete/<%=item._id %>" method="POST">
                 <button type="submit">Supprimer</button>
             </form>  
         <% } %>

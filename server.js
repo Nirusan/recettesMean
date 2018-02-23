@@ -26,17 +26,25 @@
     const app = express();
     const port = process.env.PORT || 8000;
 
-    // On configure le dossier des vues clients en spécifiant le nom qu'il aura, ici : www-ejs, on pourra changer pour www-html
-    app.set('views',__dirname + '/www-ejs');
-    app.use( express.static(path.join(__dirname, 'www-ejs')) );
+    // On configure le dossier des vues clients en spécifiant le nom qu'il aura, ici : www-ejs
+    //app.set('views',__dirname + '/www-ejs');
+    //app.use( express.static(path.join(__dirname, 'www-ejs')) );
+
+    // On configure le dossier des vues clients en spécifiant le nom qu'il aura, ici : www-html
+    app.set('views',__dirname + '/www-html');
+    app.use( express.static(path.join(__dirname, 'www-html')) );
+
+
+
+
 
     // On définit le moteur de rendu
 
         //app.engine( 'html', ejs.renderFile );
-        app.set( 'view engine', 'ejs' );
+        //app.set( 'view engine', 'ejs' );
 
         //On change le moteur du rendu pour qu'il serve du HTML
-        //app.set( 'view engine', 'html' );
+        app.set( 'view engine', 'html' );
 
     //
 

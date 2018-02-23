@@ -23,10 +23,9 @@ document.addEventListener('DOMContentLoaded', function()  {
                 },
 
                 apiUrl: {
-                    recipes: 'http://localhost:8000/api/my-recipes/',
+                    tasks: 'http://localhost:8000/api/my-recipes/',
                     add: 'http://localhost:8000/api/add-recipe',
-                    //delete: 'http://localhost:3000/api/delete-task/',
-                    //set: 'http://localhost:3000/api/set-task-state/'
+                    delete: 'http://localhost:3000/api/suppr-task/'
                 },
 
                 domElements: {
@@ -62,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function()  {
                     TodoBot.taskData.reset();
 
                     // La fonction fetch() prend en paramètre l'adresse de l'API
-                    fetch(TodoBot.apiUrl.tasks).then(function (data) {
+                    fetch(TodoBot.apiUrl.recipes).then(function (data) {
                             
                         // Les données sont présentes => renvoyer une Promise de type 'resolve'
                         if (data.ok) { return Promise.resolve(data) }
@@ -119,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function()  {
                 // Ajouter une tâche
                 addTask: function(object)  {
                     fetch(TodoBot.apiUrl.add, {
-                        method: 'GET',
+                        method: 'POST',
                         body: JSON.stringify(object), 
                         headers: new Headers({ 'Content-Type': 'application/json' })
                     })
@@ -145,14 +144,7 @@ document.addEventListener('DOMContentLoaded', function()  {
                     taskArticle.id = recipes._id;
 
                     // Ajouter un attribut à l'article
-                    taskArticle.setAttribute('data-task-state', recipes.state)
-
-                    // Définir si la tache est faite ou non
-                    if(task.state == true){ 
-                        taskArticle.classList.add('taskDone');
-                        TodoBot.tasksDone += 1;
-
-                    } else { TodoBot.taskToDo += 1 };
+                    taskArticle.setAttribute('content', recipes.content)
                     
                     // Ajouter du contenu HTML à l'article
                     taskArticle.innerHTML = '<p>'+ recipes.content +'</p><ul data-id-object="'+ recipes._id +'"><li><button class="confirmTask"><i class="fa fa-check"></i></button></li><li><button data-id-object="'+ recipes._id +'" data-state-object="'+ recipes.content +'" class="deleteTask"><i class="fa fa-times"></i></button></li></ul>';
