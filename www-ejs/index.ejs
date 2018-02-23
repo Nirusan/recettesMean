@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
-    <title>Mes recettes</title>
-</head>
+<% include partials/head.ejs %>
 <body>
-    <header>
-        <h1>My recipes</h1>
-    </header>
+    <% include partials/header.ejs %>
     <main>
-
+        <% for(let item of data){%>
+            <article>
+                <h2><%= item.title %></h2> 
+            </article>
+            <a href="/details/<%=item._id %>">Voir profil</a>
+            <form action="/api/suppr-posts/<%=item._id %>" method="POST">
+                <button type="submit">suppr</button>
+            </form>  
+        <% } %>
+        <a href="/add-recipe %>">Ajouter une recette</a>
     </main>
-    <footer>
-        <p>Under WTFPL License</p>
-    </footer>
+    <% include partials/footer.ejs %>
 </body>
 </html>

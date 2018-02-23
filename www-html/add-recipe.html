@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <title>Mes recettes</title>
+</head>
+<body>
+    <header>
+        <h1>My recipes</h1>
+    </header>
+    <main>
+        <form action="/api/add-recipe/" method="GET">
+            <textarea name="title" placeholder="Titre"></textarea>
+            <textarea name="ingredients" placeholder="Ingrédients"></textarea>
+            <textarea name="content" placeholder="Description"></textarea>
+            <button type="submit">Ajouter</button>
+        </form>
+    </main>
+    <footer>
+        <p>Under WTFPL License</p>
+    </footer>
+</body>
+</html>

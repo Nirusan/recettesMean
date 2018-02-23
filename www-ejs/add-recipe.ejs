@@ -1,0 +1,14 @@
+<% include partials/head.ejs %>
+<body>
+    <% include partials/header.ejs %>
+    <main>
+        <form action="/api/add-recipe/" method="POST">
+            <textarea name="title" placeholder="Titre"></textarea>
+            <textarea name="ingredients" placeholder="Ingrédients"></textarea>
+            <textarea name="content" placeholder="Description"></textarea>
+            <button type="submit">Ajouter</button>
+        </form>
+    </main>
+    <% include partials/footer.ejs %>
+</body>
+</html>
